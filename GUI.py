@@ -35,6 +35,10 @@ def convert():
                 wb.Worksheets(sh.Name).Select()
                 wb.ActiveSheet.ExportAsFixedFormat(0, pdf_path)
 
+                os.rename(pdf_path, os.path.join(save_path, sh.Name + ".pdf"))
+
+        os.rename(save_path, os.path.join(window.savedir, filename_noextension.replace('_', ' ')))
+
     o.Quit()
 
 
